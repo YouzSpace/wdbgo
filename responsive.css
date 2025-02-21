@@ -1,0 +1,71 @@
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    padding: 80px 2rem;
+    transform: translateX(100%);
+    transition: 0.3s;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .about-content,
+  .products-grid,
+  .team-grid,
+  .friends-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .scroll-to-top,
+  .dark-mode-toggle {
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .dark-mode-toggle {
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
