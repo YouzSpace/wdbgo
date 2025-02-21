@@ -11,7 +11,19 @@
 - JavaScript (原生 JS)
 - 响应式设计
 
-## 项目结构
+## 目录结构（由于开发者半桶水不知道怎么创建文件夹）
+柚子空间官网项目/
+├── css/
+│   ├── responsive.css
+│   └── style.css
+├── js/
+│   ├── analytics.js
+│   └── main.js
+├── index.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+└── README.md
 
 ## 项目特点
 
