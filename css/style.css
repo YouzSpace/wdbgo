@@ -1,0 +1,982 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* 导航栏样式 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9); /* 默认背景 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.5rem 0;
+  transition: background 0.3s ease;
+}
+
+.dark-mode .header {
+  background: rgba(26, 26, 26, 0.98); /* 暗色模式背景 */
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #007aff;
+  transition: color 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 35px;
+  }
+
+  .logo span {
+    font-size: 1rem;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-left: 2rem;
+  opacity: 1; /* 确保在桌面视图中不透明 */
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333; /* 默认文字颜色 */
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease; /* 过渡效果 */
+}
+
+.dark-mode .nav-menu a {
+  color: #f5f5f5; /* 暗色模式下的文字颜色 */
+}
+
+.dark-mode .nav-menu a:hover {
+  color: #007aff; /* 悬停时的颜色 */
+  background: transparent; /* 悬停时背景透明 */
+}
+
+.nav-menu a.active {
+  color: #007aff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #333;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .nav-menu a {
+    font-size: 18px;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* 主横幅样式 */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+  transition: background 0.5s ease;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  transition: all 0.5s ease;
+}
+
+.hero-content p {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #444;
+  line-height: 1.4;
+  transition: all 0.5s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem !important;
+  color: #666 !important;
+  margin-bottom: 2rem !important;
+  transition: all 0.5s ease;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #007aff;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #0056b3;
+}
+
+/* 页脚样式优化 */
+.footer {
+  background: #f8f9fa;
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-info p {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 备案链接样式优化 */
+.beian-link {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.beian-link:hover {
+  color: #007aff;
+}
+
+/* 通用容器样式 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a1a;
+  transition: all 0.5s ease;
+}
+
+/* 关于我们部分 */
+.about-section {
+  background: #fff;
+  transition: background 0.5s ease;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.about-text {
+  padding: 2.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  transition: all 0.5s ease;
+}
+
+.about-text p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  transition: all 0.5s ease;
+}
+
+/* 产品展示部分 */
+.products-section {
+  background: #f8f9fa;
+  padding: 4rem 0;
+  transition: background 0.5s ease;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card picture {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  padding: 1.5rem 1.5rem 0.5rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+  transition: all 0.5s ease;
+}
+
+.product-card p {
+  padding: 0 1.5rem 1.5rem;
+  color: #666;
+  flex-grow: 1;
+  margin: 0;
+  transition: all 0.5s ease;
+}
+
+.visit-button {
+  display: inline-block;
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #007aff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.visit-button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* 暗色模式适配 */
+.dark-mode .product-card {
+  background: #2d2d2d;
+  transition: background 0.5s ease;
+}
+
+.dark-mode .product-card h3 {
+  color: #f5f5f5;
+  transition: color 0.5s ease;
+}
+
+.dark-mode .product-card p {
+  color: #ccc;
+  transition: color 0.5s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .product-card h3 {
+    font-size: 1.3rem;
+    padding: 1.2rem 1.2rem 0.5rem;
+  }
+
+  .product-card p {
+    padding: 0 1.2rem 1.2rem;
+  }
+
+  .visit-button {
+    margin: 0 1.2rem 1.2rem;
+  }
+}
+
+/* 友情链接部分 */
+.friends-section {
+  background: #fff;
+  padding: 4rem 0;
+  transition: background 0.5s ease;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.friend-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.friend-link img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.friend-link span {
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.5s ease;
+}
+
+.friend-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.friend-link:hover img {
+  transform: scale(1.05);
+}
+
+/* 暗色模式适配 */
+.dark-mode .friend-link {
+  background: #2d2d2d;
+  transition: background 0.5s ease;
+}
+
+.dark-mode .friend-link span {
+  color: #f5f5f5;
+  transition: color 0.5s ease;
+}
+
+/* 汉堡菜单按钮 */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* 移动端菜单展开时的样式 */
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* 页脚logo样式 */
+.footer-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* 动画效果 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 卡片悬停效果 */
+.product-card,
+.friend-link,
+.about-text {
+  transition: all 0.5s ease;
+}
+
+.product-card:hover,
+.friend-link:hover,
+.about-text:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮动画 */
+.cta-button,
+.visit-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::after,
+.visit-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::after,
+.visit-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 页面加载动画 */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-icon {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 滚动进度条 */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #007aff;
+  z-index: 1002;
+  transition: width 0.3s;
+}
+
+/* 暗色模式样式 */
+.dark-mode {
+  background: #1a1a1a;
+  color: #f5f5f5;
+}
+
+.dark-mode .nav-menu a {
+  color: #f5f5f5;
+  transition: color 0.5s ease;
+}
+
+.dark-mode .hero-section {
+  background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+  transition: background 0.5s ease;
+}
+
+.dark-mode .about-section,
+.dark-mode .team-section {
+  background: #1a1a1a;
+  transition: background 0.5s ease;
+}
+
+.dark-mode .products-section,
+.dark-mode .friends-section,
+.dark-mode .footer {
+  background: #2d2d2d;
+  transition: background 0.5s ease;
+}
+
+.dark-mode .about-text,
+.dark-mode .product-card,
+.dark-mode .team-member,
+.dark-mode .friend-link {
+  background: #333;
+  color: #f5f5f5;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .section-title {
+  color: #f5f5f5;
+  transition: color 0.5s ease;
+}
+
+/* 控制按钮容器 */
+.control-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* 浮动按钮通用样式 */
+.scroll-to-top,
+.dark-mode-toggle,
+.lang-toggle {
+  position: fixed;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 0;
+  z-index: 1000;
+}
+
+/* 设置各按钮位置 */
+.scroll-to-top {
+  bottom: 130px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dark-mode-toggle {
+  bottom: 75px;
+}
+
+.lang-toggle {
+  bottom: 20px;
+}
+
+/* 返回顶部按钮显示状态 */
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 暗色模式图标 */
+.dark-mode-toggle::before {
+  content: "🌓";
+}
+
+/* 按钮悬停效果 */
+.scroll-to-top:hover,
+.dark-mode-toggle:hover,
+.lang-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 按钮点击效果 */
+.scroll-to-top:active,
+.dark-mode-toggle:active,
+.lang-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 暗色模式下的按钮样式 */
+.dark-mode .scroll-to-top,
+.dark-mode .dark-mode-toggle,
+.dark-mode .lang-toggle {
+  background: #2d2d2d;
+  color: #f5f5f5;
+  border-color: #404040;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .scroll-to-top,
+  .dark-mode-toggle,
+  .lang-toggle {
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .scroll-to-top {
+    bottom: 120px;
+  }
+
+  .dark-mode-toggle {
+    bottom: 65px;
+  }
+
+  .lang-toggle {
+    bottom: 15px;
+  }
+}
+
+/* 小屏幕进一步调整 */
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 135px;
+  }
+}
+
+/* 错误页面样式 */
+.error-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.error-page h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.error-page p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.dark-mode .error-page h1 {
+  color: #f5f5f5;
+}
+
+.dark-mode .error-page p {
+  color: #ccc;
+}
+
+/* 图片懒加载样式 */
+.lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
+
+/* 图片加载错误样式 */
+.img-error {
+  min-height: 100px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 响应式图片容器 */
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 图片加载动画 */
+.lazy:not(.loaded) {
+  position: relative;
+  background: #f8f9fa;
+}
+
+.lazy:not(.loaded)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f8f9fa 25%, #e9ecef 50%, #f8f9fa 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 暗色模式适配 */
+.dark-mode .lazy:not(.loaded) {
+  background: #2d2d2d;
+}
+
+.dark-mode .lazy:not(.loaded)::after {
+  background: linear-gradient(90deg, #2d2d2d 25%, #1a1a1a 50%, #2d2d2d 75%);
+}
+
+.dark-mode .img-error {
+  background-color: #2d2d2d;
+  color: #ccc;
+}
+
+/* 暗色模式适配 */
+.dark-mode .hero-content h1 {
+  color: #f5f5f5;
+}
+
+.dark-mode .hero-content p {
+  color: #e0e0e0;
+}
+
+.dark-mode .hero-subtitle {
+  color: #ccc !important;
+}
+
+.dark-mode .about-text h3 {
+  color: #f5f5f5;
+}
+
+.dark-mode .about-text p {
+  color: #ccc;
+}
+
+/* 暗色模式适配 */
+.dark-mode .logo span {
+  color: #f5f5f5;
+}
+
+/* 所有需要过渡的元素添加过渡效果 */
+.header,
+.nav-menu a,
+.hero-section,
+.about-section,
+.products-section,
+.friends-section,
+.footer,
+.about-text,
+.product-card,
+.friend-link,
+.section-title,
+.hero-content h1,
+.hero-content p,
+.about-text h3,
+.about-text p,
+.product-card h3,
+.product-card p,
+.friend-link span,
+.logo span {
+  transition: all 0.5s ease;
+}
+
+/* 暗色模式适配 */
+.dark-mode .beian-link {
+  color: #ccc;
+}
+
+.dark-mode .beian-link:hover {
+  color: #3a9eff;
+}
+
+/* 导航栏样式 */
+.header {
+  background: rgba(255, 255, 255, 0.9); /* 默认背景 */
+  transition: background 0.3s ease;
+}
+
+.dark-mode .header {
+  background: rgba(26, 26, 26, 0.98); /* 暗色模式背景 */
+}
+
+.nav-menu a {
+  color: #333; /* 默认文字颜色 */
+  transition: color 0.3s ease;
+}
+
+.dark-mode .nav-menu a {
+  color: #f5f5f5; /* 暗色模式下的文字颜色 */
+}
+
+.dark-mode .nav-menu a:hover {
+  color: #007aff; /* 悬停时的颜色 */
+  background: transparent; /* 悬停时背景透明 */
+}

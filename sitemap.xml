@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://go.youz.space/</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link 
+            rel="alternate"
+            hreflang="en"
+            href="https://go.youz.space/?lang=en"
+        />
+        <xhtml:link
+            rel="alternate"
+            hreflang="zh"
+            href="https://go.youz.space/?lang=zh"
+        />
+        <image:image>
+            <image:loc>https://img.youz.space/i/02/j5haq0-0.png</image:loc>
+            <image:title>柚子空间 Logo | YouZ Space Logo</image:title>
+            <image:caption>柚子空间 - 技术分享服务平台 | YouZ Space - Technology Sharing Platform</image:caption>
+        </image:image>
+    </url>
+</urlset> 
